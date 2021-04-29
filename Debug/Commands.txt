@@ -1,0 +1,50 @@
+*BASIC* ENGKAPISH COMMANDS
+----------------------------------------------
+Files
+
+RFF ;   Read From File Usage (RFF strLocation strData)
+WTF ;   Write To File Usage (WTF strLocation strData)
+----------------------------------------------
+Comments
+
+REM ;   Is a comment so type REM anything after REM wont count as code Usage (REM This is commented out!)
+----------------------------------------------
+Internet
+
+DWNLD_PAGE ;   Downloads a url page to a string Usage (myString DWNLD_PAGE https://www.google.com/)
+----------------------------------------------
+Methods
+
+anyTextHere: ; Starts a method, requires text and a : at the end.
+END ;   ENDS the method
+STOP ;   Works the same as END
+GOTO ;   Goes to a method aka START: Usage (GOTO START)
+----------------------------------------------
+Console
+
+CLS ;   Clears screen Usage (CLS)
+HALT ;   Pauses until key press Usage (HALT)
+CNSL_STRT_LOC ;   Console Start Location Usage (CNSL_STRT_LOC 1920 1080)
+SCREEN_SIZE ;   Screen size Usage (SCREEN_SIZE 1920 1080)
+COLOR ;   Text color Usage (COLOR Green) (COLOR Red) etc....
+PRINT ;   Prints text to the screen Usage (PRINT "Hello" + myVariable)
+WAIT ;   Pauses for set amount of time Usage (WAIT 5) waits 5 seconds
+INPUT ;   Gets data from keyboard until Enter key is pressed Usage (INPUT strName)
+----------------------------------------------
+Variables
+
+LET ;   Variable Usage (LET myVariable = "Hello World!")
+INPUT ;   Gets data from keyboard until Enter key is pressed Usage (INPUT strName)
+PUB_LET ; Creates a global variable that can be accessed anywhere in the program Usage (PUB_LET strName = "Engkapish")
+INPUT_LET ; Gets a character from keyboard when a key is pressed Usage (INPUT_LET myCharacter)
+----------------------------------------------
+Functions
+
+REPLACE ;   Replaces a string with another string Usage (str 1 = str1.Replace(str1, str2) ) 
+IF ;   if statement Usage (IF variableINT1 > variableINT2 THEN START)
+RUN ; Start a file Usage (RUN "notepad.exe")
+REPLACE ; Replaces a value with another value Usage (REPLACE string1 string2)
+RANDOM ; Creates a random number and assigns it to a varialbe Usage (RANDOM myVar 77)
+VALUE_NOW ; Assigns a new value to a variable types are EQU for equals, ADD for adding, SUB for subtracting Usage (VALUE_NOW myInt SUB 3)
+
+----------------------------------------------

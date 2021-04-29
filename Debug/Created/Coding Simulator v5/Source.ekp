@@ -1,0 +1,16 @@
+using System;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Net;
+using System.Linq;
+using System.IO;
+using System.Net.Http;
+class Program{
+static void Main() {
+Console.WriteLine( "HELLO WORLD");
+var myVar =    "And Hello BASIC ENGKAPISH!";
+Console.WriteLine( myVar);
+Thread.Sleep(Convert.ToInt32(5)*1000);
+Console.ReadKey();
+}
+}

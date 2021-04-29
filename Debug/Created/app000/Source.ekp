@@ -1,0 +1,72 @@
+using System;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Net;
+using System.Linq;
+using System.IO;
+using System.Net.Http;
+class Program{
+public static int money =    0;
+
+public static string word =    "";
+
+public static int maxMoney =    10;
+
+static void Main() {
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine( "Welcome to Coding Simulator Version 5.0.0.0");
+Thread.Sleep(Convert.ToInt32(5)*1000);
+getRand();
+}
+static void getRand() {
+var randVal =    0;
+Random rand773 = new Random();
+randVal = rand773.Next(3);
+if(randVal==1) { get1(); }
+if(randVal==2) { get2(); }
+if(randVal==3) { get3(); }
+start();
+}
+static void get1() {
+word =    "PRINT myVar";
+start();
+}
+static void get2() {
+word =    "WAIT 5";
+start();
+}
+static void get3() {
+word =    "IF 1 = 2 THEN yes";
+start();
+}
+static void start() {
+Console.Clear();
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine( "$" + money);
+Console.WriteLine( "");
+Console.WriteLine( "Write this code");
+Console.WriteLine( "");
+Console.WriteLine( word);
+string usrInput = Console.ReadLine();
+if(usrInput==word) { correct(); }
+static void incorrect
+}
+static void correct() {
+Console.Clear();
+var randMoney =    0;
+Random rand479 = new Random();
+randMoney = rand479.Next(maxMoney);
+money +=    randMoney;
+getRand();
+}
+static void incorrect() {
+Console.Clear();
+var newVal =    0;
+Random rand5599 = new Random();
+newVal = rand5599.Next(6);
+Console.WriteLine( "There was an error with your script!");
+Console.WriteLine( "You lost $" + newVal);
+money -=    newVal;
+getRand();
+}
+}

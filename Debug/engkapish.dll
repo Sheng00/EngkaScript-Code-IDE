@@ -1,0 +1,1450 @@
+using System;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Windows.Forms;
+using System.Speech;
+using System.Drawing;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Media;
+using System.Speech.Synthesis;
+using System.Diagnostics;
+using System.Net;
+using System.Net.Mail;
+
+public class Autoclicker
+{
+    [DllImport("user32")]
+    public static extern int SetCursorPos(int x, int y);
+    private const int MOUSEEVENTF_ABSOLUTE = 0x8000;
+    private const int MOUSEEVENTF_LEFTDOWN = 0x0002;
+    private const int MOUSEEVENTF_LEFTUP = 0x0004;
+    private const int MOUSEEVENTF_MIDDLEDOWN = 0x0020;
+    private const int MOUSEEVENTF_MIDDLEUP = 0x0040;
+    private const int MOUSEEVENTF_MOVE = 0x0001;
+    private const int MOUSEEVENTF_RIGHTDOWN = 0x0008;
+    private const int MOUSEEVENTF_RIGHTUP = 0x0010;
+    private const int MOUSEEVENTF_XDOWN = 0x0080;
+    private const int MOUSEEVENTF_XUP = 0x0100;
+    private const int MOUSEEVENTF_WHEEL = 0x0800;
+    private const int MOUSEEVENTF_HWHEEL = 0x01000;
+
+
+    [DllImport("user32.dll",
+        CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+
+    public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons,
+int dwExtraInfo);
+
+    public static void MouseClicker(bool isLeftClick, int milliseconds_between_clicks, int max_clicks)
+    {
+        int x = Cursor.Position.X;
+        int y = Cursor.Position.Y;
+
+        if (isLeftClick == true)
+        {
+            for (int i = 0; i <= max_clicks; i++)
+            {
+                Thread.Sleep(milliseconds_between_clicks);
+                mouse_event(MOUSEEVENTF_LEFTDOWN, x, y, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, x, y, 0, 0);
+            }
+        }
+        else if (isLeftClick == false)
+        {
+            for (int i = 0; i <= max_clicks; i++)
+            {
+                Thread.Sleep(milliseconds_between_clicks);
+                mouse_event(MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0);
+                mouse_event(MOUSEEVENTF_RIGHTUP, x, y, 0, 0);
+            }
+        }
+    }
+}
+
+
+class Clear
+{
+    public static void Screen()
+    {
+        Console.Clear();
+    }
+}
+
+
+public class Delete
+{
+    public static void file(string path)
+    {
+        File.Delete(path);
+    }
+    public static void directory(string path)
+    {
+        Directory.Delete(path);
+    }
+}
+
+
+
+
+class Generate
+{
+    public static string GeneratedString { get; set; }
+    public static void MixedString(int Amount, int Length)
+    {
+        GeneratedString = "";
+
+        StringBuilder sb = new StringBuilder();
+        Random rand = new Random();
+        for (int e = 0; e <= Amount; e++)
+        {
+            for (int i = 0; i <= Length - 1; i++)
+            {
+                int num = rand.Next(0, 61);
+
+                switch (num)
+                {
+
+                    case 0:
+                        sb.Append("A");
+                        break;
+                    case 1:
+                        sb.Append("B");
+
+                        break;
+                    case 2:
+                        sb.Append("C");
+
+                        break;
+                    case 3:
+                        sb.Append("D");
+
+                        break;
+                    case 4:
+                        sb.Append("E");
+
+                        break;
+                    case 5:
+                        sb.Append("F");
+
+                        break;
+                    case 6:
+                        sb.Append("G");
+
+                        break;
+                    case 7:
+                        sb.Append("H");
+
+                        break;
+                    case 8:
+                        sb.Append("I");
+
+                        break;
+                    case 9:
+                        sb.Append("J");
+
+                        break;
+                    case 10:
+                        sb.Append("K");
+
+                        break;
+                    case 11:
+                        sb.Append("L");
+
+                        break;
+                    case 12:
+                        sb.Append("M");
+
+                        break;
+                    case 13:
+                        sb.Append("N");
+
+                        break;
+                    case 14:
+                        sb.Append("O");
+
+                        break;
+                    case 15:
+                        sb.Append("P");
+
+                        break;
+                    case 16:
+                        sb.Append("Q");
+
+                        break;
+                    case 17:
+                        sb.Append("R");
+
+                        break;
+                    case 18:
+                        sb.Append("S");
+
+                        break;
+                    case 19:
+                        sb.Append("T");
+
+                        break;
+                    case 20:
+                        sb.Append("U");
+
+                        break;
+                    case 21:
+                        sb.Append("V");
+
+                        break;
+                    case 22:
+                        sb.Append("W");
+
+                        break;
+                    case 23:
+                        sb.Append("X");
+
+                        break;
+                    case 24:
+                        sb.Append("Y");
+
+                        break;
+                    case 25:
+                        sb.Append("Z");
+
+                        break;
+                    case 26:
+                        sb.Append("a");
+
+                        break;
+                    case 27:
+                        sb.Append("b");
+
+                        break;
+                    case 28:
+                        sb.Append("c");
+
+                        break;
+                    case 29:
+                        sb.Append("d");
+
+                        break;
+                    case 30:
+                        sb.Append("e");
+
+                        break;
+                    case 31:
+                        sb.Append("f");
+
+                        break;
+                    case 32:
+                        sb.Append("g");
+
+                        break;
+                    case 33:
+                        sb.Append("h");
+
+                        break;
+                    case 34:
+                        sb.Append("i");
+
+                        break;
+                    case 35:
+                        sb.Append("j");
+
+                        break;
+                    case 36:
+                        sb.Append("k");
+
+                        break;
+                    case 37:
+                        sb.Append("l");
+
+                        break;
+                    case 38:
+                        sb.Append("m");
+
+                        break;
+                    case 39:
+                        sb.Append("n");
+
+                        break;
+                    case 40:
+                        sb.Append("o");
+
+                        break;
+                    case 41:
+                        sb.Append("p");
+
+                        break;
+                    case 42:
+                        sb.Append("q");
+
+                        break;
+                    case 43:
+                        sb.Append("r");
+
+                        break;
+                    case 44:
+                        sb.Append("s");
+
+                        break;
+                    case 45:
+                        sb.Append("t");
+
+                        break;
+                    case 46:
+                        sb.Append("u");
+
+                        break;
+                    case 47:
+                        sb.Append("v");
+
+                        break;
+                    case 48:
+                        sb.Append("w");
+
+                        break;
+                    case 49:
+                        sb.Append("x");
+
+                        break;
+                    case 50:
+                        sb.Append("y");
+
+                        break;
+                    case 51:
+                        sb.Append("z");
+
+                        break;
+                    case 52:
+                        sb.Append("1");
+                        break;
+                    case 53:
+                        sb.Append("2");
+                        break;
+                    case 54:
+                        sb.Append("3");
+                        break;
+                    case 55:
+                        sb.Append("4");
+                        break;
+                    case 56:
+                        sb.Append("5");
+                        break;
+                    case 57:
+                        sb.Append("6");
+                        break;
+                    case 58:
+                        sb.Append("7");
+                        break;
+                    case 59:
+                        sb.Append("8");
+                        break;
+                    case 60:
+                        sb.Append("9");
+                        break;
+                    case 61:
+                        sb.Append("0");
+                        break;
+                }
+            }
+            GeneratedString += (sb.ToString() + Environment.NewLine);
+            sb.Clear();
+        }
+
+    }
+    public static void String(int Amount, int Length)
+    {
+        GeneratedString = "";
+
+        Random rand = new Random();
+        StringBuilder sb = new StringBuilder();
+        for (int e = 0; e <= Amount; e++)
+        {
+            for (int i = 0; i <= Length - 1; i++)
+            {
+                int num = rand.Next(0, 51);
+                switch (num)
+                {
+                    case 0:
+                        sb.Append("A");
+                        break;
+                    case 1:
+                        sb.Append("B");
+
+                        break;
+                    case 2:
+                        sb.Append("C");
+
+                        break;
+                    case 3:
+                        sb.Append("D");
+
+                        break;
+                    case 4:
+                        sb.Append("E");
+
+                        break;
+                    case 5:
+                        sb.Append("F");
+
+                        break;
+                    case 6:
+                        sb.Append("G");
+
+                        break;
+                    case 7:
+                        sb.Append("H");
+
+                        break;
+                    case 8:
+                        sb.Append("I");
+
+                        break;
+                    case 9:
+                        sb.Append("J");
+
+                        break;
+                    case 10:
+                        sb.Append("K");
+
+                        break;
+                    case 11:
+                        sb.Append("L");
+
+                        break;
+                    case 12:
+                        sb.Append("M");
+
+                        break;
+                    case 13:
+                        sb.Append("N");
+
+                        break;
+                    case 14:
+                        sb.Append("O");
+
+                        break;
+                    case 15:
+                        sb.Append("P");
+
+                        break;
+                    case 16:
+                        sb.Append("Q");
+
+                        break;
+                    case 17:
+                        sb.Append("R");
+
+                        break;
+                    case 18:
+                        sb.Append("S");
+
+                        break;
+                    case 19:
+                        sb.Append("T");
+
+                        break;
+                    case 20:
+                        sb.Append("U");
+
+                        break;
+                    case 21:
+                        sb.Append("V");
+
+                        break;
+                    case 22:
+                        sb.Append("W");
+
+                        break;
+                    case 23:
+                        sb.Append("X");
+
+                        break;
+                    case 24:
+                        sb.Append("Y");
+
+                        break;
+                    case 25:
+                        sb.Append("Z");
+
+                        break;
+                    case 26:
+                        sb.Append("a");
+
+                        break;
+                    case 27:
+                        sb.Append("b");
+
+                        break;
+                    case 28:
+                        sb.Append("c");
+
+                        break;
+                    case 29:
+                        sb.Append("d");
+
+                        break;
+                    case 30:
+                        sb.Append("e");
+
+                        break;
+                    case 31:
+                        sb.Append("f");
+
+                        break;
+                    case 32:
+                        sb.Append("g");
+
+                        break;
+                    case 33:
+                        sb.Append("h");
+
+                        break;
+                    case 34:
+                        sb.Append("i");
+
+                        break;
+                    case 35:
+                        sb.Append("j");
+
+                        break;
+                    case 36:
+                        sb.Append("k");
+
+                        break;
+                    case 37:
+                        sb.Append("l");
+
+                        break;
+                    case 38:
+                        sb.Append("m");
+
+                        break;
+                    case 39:
+                        sb.Append("n");
+
+                        break;
+                    case 40:
+                        sb.Append("o");
+
+                        break;
+                    case 41:
+                        sb.Append("p");
+
+                        break;
+                    case 42:
+                        sb.Append("q");
+
+                        break;
+                    case 43:
+                        sb.Append("r");
+
+                        break;
+                    case 44:
+                        sb.Append("s");
+
+                        break;
+                    case 45:
+                        sb.Append("t");
+
+                        break;
+                    case 46:
+                        sb.Append("u");
+
+                        break;
+                    case 47:
+                        sb.Append("v");
+
+                        break;
+                    case 48:
+                        sb.Append("w");
+
+                        break;
+                    case 49:
+                        sb.Append("x");
+
+                        break;
+                    case 50:
+                        sb.Append("y");
+
+                        break;
+                    case 51:
+                        sb.Append("z");
+
+                        break;
+                }
+            }
+            GeneratedString += (sb.ToString() + Environment.NewLine);
+            sb.Clear();
+        }
+    }
+    public static void Numbers(int Amount, int Length)
+    {
+        GeneratedString = "";
+        Random rand = new Random();
+        StringBuilder sb = new StringBuilder();
+        for (int e = 0; e <= Amount; e++)
+        {
+            for (int i = 0; i <= Length - 1; i++)
+            {
+                int num = rand.Next(0, 9);
+                sb.Append(num);
+            }
+            GeneratedString += (sb.ToString() + Environment.NewLine);
+            sb.Clear();
+        }
+    }
+}
+
+
+
+
+class Password
+{
+    public static void Lock(string message, string failMessage, string successMessage, string password)
+    {
+
+        string pass;
+        Clear.Screen();
+        Write.Text(message);
+        pass = Console.ReadLine();
+        if (pass == password)
+        {
+            Clear.Screen();
+            Write.Text(successMessage);
+        }
+        else if (pass != password)
+        {
+            Clear.Screen();
+            Write.Text(failMessage);
+            Pause.Screen.onKeyPress(false);
+            Password.Lock(message, failMessage, successMessage, password);
+        }
+    }
+}
+
+
+
+
+public class Pause
+{
+
+    public static void Program(int milliseconds_to_pause)
+    {
+        Thread.Sleep(milliseconds_to_pause);
+    }
+    public class Screen
+    {
+        public static void onEnter()
+        {
+            Console.ReadLine();
+        }
+
+        public static void onKeyPress(bool Display_Press_Any_Key)
+        {
+            if (Display_Press_Any_Key == true)
+            {
+                Console.WriteLine("Press Any Key To Continue...");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.ReadKey();
+            }
+        }
+    }
+}
+
+
+public class Play
+{
+
+    public class Sound
+    {
+        public static void Beep()
+        {
+            Console.Beep();
+        }
+        public static void Meow(bool Loop)
+        {
+            DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+            var files = di.GetFiles();
+            foreach (var file in files)
+            {
+                if (file.FullName.Contains("catMeow"))
+                {
+                    SoundPlayer typewriter = new SoundPlayer();
+                    typewriter.SoundLocation = file.FullName;
+                    if (Loop == true)
+                    {
+                        typewriter.PlayLooping();
+                    }
+                    else
+                    {
+                        typewriter.PlaySync();
+                    }
+                }
+            }
+        }
+        public static void Bell(bool Loop)
+        {
+            DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+            var files = di.GetFiles();
+            foreach (var file in files)
+            {
+                if (file.FullName.Contains("serviceBell"))
+                {
+                    SoundPlayer typewriter = new SoundPlayer();
+                    typewriter.SoundLocation = file.FullName;
+                    if (Loop == true)
+                    {
+                        typewriter.PlayLooping();
+                    }
+                    else
+                    {
+                        typewriter.PlaySync();
+                    }
+                }
+            }
+        }
+        public static void Robot(bool Loop)
+        {
+            DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+            var files = di.GetFiles();
+            foreach (var file in files)
+            {
+                if (file.FullName.Contains("Robot"))
+                {
+                    SoundPlayer typewriter = new SoundPlayer();
+                    typewriter.SoundLocation = file.FullName;
+                    if (Loop == true)
+                    {
+                        typewriter.PlayLooping();
+                    }
+                    else
+                    {
+                        typewriter.PlaySync();
+                    }
+                }
+            }
+        }
+        public static void DemonGirl(bool Loop)
+        {
+            DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+            var files = di.GetFiles();
+            foreach (var file in files)
+            {
+                if (file.FullName.Contains("demonGirl"))
+                {
+                    SoundPlayer typewriter = new SoundPlayer();
+                    typewriter.SoundLocation = file.FullName;
+                    if (Loop == true)
+                    {
+                        typewriter.PlayLooping();
+                    }
+                    else
+                    {
+                        typewriter.PlaySync();
+                    }
+                }
+            }
+        }
+        public static void CrushingPlastic(bool Loop)
+        {
+            DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+            var files = di.GetFiles();
+            foreach (var file in files)
+            {
+                if (file.FullName.Contains("crushingPlastic"))
+                {
+                    SoundPlayer typewriter = new SoundPlayer();
+                    typewriter.SoundLocation = file.FullName;
+                    if (Loop == true)
+                    {
+                        typewriter.PlayLooping();
+                    }
+                    else
+                    {
+                        typewriter.PlaySync();
+                    }
+                }
+            }
+        }
+        public static void Bomb(bool Loop)
+        {
+            DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+            var files = di.GetFiles();
+            foreach (var file in files)
+            {
+                if (file.FullName.Contains("bomb"))
+                {
+                    SoundPlayer typewriter = new SoundPlayer();
+                    typewriter.SoundLocation = file.FullName;
+                    if (Loop == true)
+                    {
+                        typewriter.PlayLooping();
+                    }
+                    else
+                    {
+                        typewriter.PlaySync();
+                    }
+                }
+            }
+        }
+        public static void ShotgunReload(bool Loop)
+        {
+            DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+            var files = di.GetFiles();
+            foreach (var file in files)
+            {
+                if (file.FullName.Contains("shotgunReload"))
+                {
+                    SoundPlayer typewriter = new SoundPlayer();
+                    typewriter.SoundLocation = file.FullName;
+                    if (Loop == true)
+                    {
+                        typewriter.PlayLooping();
+                    }
+                    else
+                    {
+                        typewriter.PlaySync();
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+public class Say
+{
+    private static SpeechSynthesizer SS = new SpeechSynthesizer();
+
+    public static void Custom_Text(string text)
+    {
+        SS.SpeakAsync(text);
+    }
+    public static void Help()
+    {
+        SS.SpeakAsync("Help!");
+    }
+    public static void Whatsup()
+    {
+        SS.SpeakAsync("Whats Up?");
+    }
+    public static void Levi()
+    {
+        SS.SpeakAsync("Levi");
+    }
+    public static void Creator()
+    {
+        SS.SpeakAsync("The creator of Engkapish is the Koderz!");
+    }
+}
+
+
+
+public class SetBackgroundColor
+{
+    public static void Red()
+    {
+
+        Console.BackgroundColor = ConsoleColor.Red;
+
+    }
+    public static void Green()
+    {
+
+        Console.BackgroundColor = ConsoleColor.Green;
+
+    }
+    public static void Blue()
+    {
+
+        {
+            Console.BackgroundColor = ConsoleColor.Blue;
+        }
+
+        {
+
+        }
+    }
+    public static void Yellow()
+    {
+
+        {
+            Console.BackgroundColor = ConsoleColor.Yellow;
+        }
+
+        {
+
+        }
+    }
+    public static void Magenta()
+    {
+
+        {
+            Console.BackgroundColor = ConsoleColor.Magenta;
+        }
+
+        {
+
+        }
+    }
+    public static void Purple()
+    {
+
+        {
+            Console.BackgroundColor = ConsoleColor.DarkMagenta;
+        }
+
+        {
+
+        }
+    }
+    public static void Black()
+    {
+
+        {
+            Console.BackgroundColor = ConsoleColor.Black;
+        }
+
+        {
+
+        }
+    }
+    public static void White()
+    {
+
+        {
+            Console.BackgroundColor = ConsoleColor.White;
+        }
+
+        {
+
+        }
+    }
+    public static void Cyan()
+    {
+
+        {
+            Console.BackgroundColor = ConsoleColor.Cyan;
+        }
+
+        {
+
+        }
+    }
+    public static void Grey()
+    {
+
+        {
+            Console.BackgroundColor = ConsoleColor.Gray;
+        }
+
+        {
+
+        }
+    }
+}
+
+
+
+class SetForegroundColor
+{
+    public static void Red()
+    {
+
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+        }
+
+        {
+
+        }
+    }
+    public static void Green()
+    {
+
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+        }
+
+        {
+
+        }
+    }
+    public static void Blue()
+    {
+
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+        }
+
+        {
+
+        }
+    }
+    public static void Yellow()
+    {
+
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+        }
+
+        {
+
+        }
+    }
+    public static void Magenta()
+    {
+
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+        }
+
+        {
+
+        }
+    }
+    public static void Purple()
+    {
+
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        }
+
+        {
+
+        }
+    }
+    public static void Black()
+    {
+
+        {
+            Console.ForegroundColor = ConsoleColor.Black;
+        }
+
+        {
+
+        }
+    }
+    public static void White()
+    {
+
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        {
+
+        }
+    }
+    public static void Cyan()
+    {
+
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+        }
+
+        {
+
+        }
+    }
+    public static void Grey()
+    {
+
+        {
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        {
+
+        }
+    }
+}
+
+
+
+class Site
+{
+    public static string location { get; set; }
+    public static string text { get; set; }
+
+    //public static string backgroundName { get; set; }
+    //public static string buttonname { get; set; }
+    public static void Start(string location_to_be_made)
+    {
+        location = location_to_be_made;
+        text += "<html>";
+    }
+    public static void Center()
+    {
+        text += "<center>";
+    }
+    public static void EndCenter()
+    {
+        text += "</center>";
+    }
+    public static void Head(string title, string image_location)
+    {
+        text += "<head><link rel=\"icon\" type=\"image / gif / png\" href=\"" + image_location + "\">" + "<title>" + title + "</title></head>";
+    }
+    public static void StartBody()
+    {
+        text += "<body>";
+    }
+    public static void BodyBackgroundColor(string color)
+    {
+        text += "<body bgcolor=\"" + color + "\">";
+    }
+    public static void BodyBackgroundImage(string image_location)
+    {
+        text += $"<body background=\"{image_location}\">";
+    }
+    public static void AddFontSize(int size)
+    {
+        text += $"<font size=\"{size}\">";
+    }
+    public static void EndFont()
+    {
+        text += "</font>";
+    }
+
+    public static void image(string image_location)
+    {
+        text += $"<img src=\"{image_location}\" width=\"auto\" height=\"auto\">";
+    }
+    public class Buttons
+    {
+        public static void StartButton(string buttonName)
+        {
+            text += "<div class=\"" + buttonName + "\">";
+        }
+
+        public static void EndButton()
+        {
+            text += "</div>";
+        }
+        public static void AddButton(string buttonName, string Color1, string Color2, bool isCurved, string Text)
+        {
+
+            text += Text;
+
+            text += Environment.NewLine + "<style>" + Environment.NewLine +
+            "." + buttonName + "{" + Environment.NewLine +
+
+                "background-color: " + Color1 + ";" + Environment.NewLine +
+                "color: " + Color2 + ";" + Environment.NewLine;
+            if (isCurved == true)
+            {
+                text += "border-radius: " + "35px;";
+            }
+            text += "} </style>";
+        }
+        public static void AhrefLinkedButton(string buttonName, string Color1, string Color2, bool isCurved, string link, string Text)
+        {
+
+            text += "<a href=\"" + link + $"\" class=\"{buttonName}\">" + text + "</a>";
+            text += Environment.NewLine + "<style>" + Environment.NewLine +
+"." + buttonName + "{" + Environment.NewLine +
+
+"background-color: " + Color1 + ";" + Environment.NewLine +
+"color: " + Color2 + ";" + Environment.NewLine;
+            if (isCurved == true)
+            {
+                text += "border-radius: " + "35px;";
+            }
+            text += "} </style>";
+        }
+    }
+
+    public class Text
+    {
+        public static void AddText(string Text)
+        {
+            text += Text;
+        }
+        public static void BlankLine()
+        {
+            text += "<br>";
+        }
+        public static void Background(string backgroundName, string Color1, string Color2, bool isCurved)
+        {
+            text += Environment.NewLine + "<style>" + Environment.NewLine +
+                "." + backgroundName + "{" +
+                Environment.NewLine + "background-color: " + Color1 + ";" +
+                Environment.NewLine + "color: " + Color2 + ";" + Environment.NewLine;
+            if (isCurved == true)
+            {
+                text += "border-radius: " + "35px;";
+            }
+            text += "}</style>";
+        }
+        public static void StartBackground(string backgroundName)
+        {
+            text += "<div class=\"" + backgroundName + "\">";
+        }
+        public static void EndBackground()
+        {
+            text += "</div>";
+        }
+    }
+
+    public static void EndBody()
+    {
+        text += "</body>";
+    }
+    public static void End()
+    {
+        text += "</html>";
+    }
+    public static void Compile()
+    {
+        Write.ToFile(location + @"\HtmlSite.html", text);
+        Process.Start(location + @"\HtmlSite.html");
+    }
+}
+
+
+
+
+public class Spam
+{
+    public static void Process(int milliseconds_per_spam, int amount, string Site_App)
+    {
+
+        for (int i = 0; i <= amount - 1; i++)
+        {
+            Start.Application(Site_App);
+            Thread.Sleep(milliseconds_per_spam);
+        }
+    }
+    public static void Text(string text, int max_sends, int time_between_send, bool Make_New_Line, string special_type_keycode)
+    {
+        time_between_send = time_between_send * 1000;
+        for (int i = 0; i <= max_sends; i++)
+        {
+            Thread.Sleep(time_between_send);
+            SendKeys.SendWait(special_type_keycode);
+
+            if (Make_New_Line == true)
+            {
+                SendKeys.SendWait(text);
+                SendKeys.SendWait("^{ENTER}");
+            }
+            else if (Make_New_Line == false)
+            {
+                SendKeys.SendWait(text);
+            }
+        }
+    }
+}
+
+
+
+public class Start
+{
+    public static void Application(string Application_Location)
+    {
+        Process.Start(Application_Location);
+    }
+
+    public static void Shutdown_Sequence()
+    {
+        Process.Start("shutdown", "/s /t 0");
+    }
+    public static void Restart_Sequence()
+    {
+        Process.Start("shutdown", "/r /t 0");
+    }
+    private static int time { get; set; }
+    private static bool displayCountDown { get; set; }
+    private static bool playBeepWhenDone { get; set; }
+    public static void CountDown(int Time, bool displayCountdown, bool Play_Beep_When_Done)
+    {
+        time = Time * 1000;
+        if (Play_Beep_When_Done == true)
+            playBeepWhenDone = true;
+        if (Play_Beep_When_Done == false)
+            playBeepWhenDone = false;
+
+        if (displayCountdown == true)
+        {
+            displayCountDown = true;
+        }
+        if (displayCountdown == false)
+        {
+            displayCountDown = false;
+        }
+        Thread thd = new Thread(countdown);
+        thd.Start();
+    }
+
+    private static async void countdown()
+    {
+        if (playBeepWhenDone == true)
+        {
+            if (displayCountDown == true)
+            {
+                do
+                {
+                    time -= 1000;
+                    Clear.Screen();
+                    Write.Text("Time remaining: " + time / 1000);
+                    Thread.Sleep(1000);
+                } while (time > 0);
+                Play.Sound.Beep();
+                Play.Sound.Beep();
+                Play.Sound.Beep();
+
+            }
+            else
+            {
+
+                do
+                {
+                    time -= 1000;
+                    Thread.Sleep(1000);
+                } while (time > 0);
+                Play.Sound.Beep();
+                Play.Sound.Beep();
+                Play.Sound.Beep();
+
+            }
+        }
+        else
+        {
+            if (playBeepWhenDone == true)
+            {
+
+                do
+                {
+                    time -= 1000;
+                    Thread.Sleep(1000);
+                } while (time > 0);
+                Play.Sound.Beep();
+                Play.Sound.Beep();
+                Play.Sound.Beep();
+            }
+        }
+    }
+}
+
+
+
+public class Write
+{
+    public static void Email(string Subject, string Body, string Email_Address, string smtp_Server, int port, string email, string password, int amount)
+    {
+        try
+        {
+            for (int i = 0; i <= amount - 1; i++)
+            {
+                MailMessage message = new MailMessage(email, Email_Address, Subject, Body);
+                NetworkCredential cred = new NetworkCredential(email, password);
+                SmtpClient client = new SmtpClient(smtp_Server, port);
+                client.EnableSsl = true;
+                client.UseDefaultCredentials = false;
+                client.Credentials = cred;
+                client.Send(message);
+            }
+        }
+        catch (Exception ex)
+        {
+            Write.Text(ex.Message);
+        }
+
+    }
+
+    public static string userResponse { get; set; }
+    public static void GetResponse()
+    {
+        userResponse = Console.ReadLine();
+    }
+    public static string FileContents { get; set; }
+    public static void FromFile(string location)
+    {
+        string Contents = File.ReadAllText(location);
+        FileContents = Contents;
+    }
+
+    public static string[] FileLines { get; set; }
+    public static void GetFileLines(string path)
+    {
+        FileLines = File.ReadAllLines(path);
+
+    }
+    public static void ToFile(string location, string contents)
+    {
+        File.WriteAllText(location, contents);
+    }
+    public static void HelloWorld()
+    {
+        Console.WriteLine("Hello World!");
+    }
+    public static void Text(string text)
+    {
+        Console.WriteLine(text);
+    }
+    public static void Blank()
+    {
+        Console.WriteLine();
+    }
+    public static void CreatorsWebsite()
+    {
+        Write.Text("http://engkapish.ml/");
+        Start.Application("http://engkapish.ml/");
+    }
+
+    public static string Processes { get; set; }
+    public static void CurrentProcesses(bool Only_Show_Names, bool write_data_to_screen)
+    {
+
+        if (Only_Show_Names == true)
+        {
+            Process[] processes = Process.GetProcesses();
+            foreach (Process process in processes)
+            {
+                if (write_data_to_screen == true)
+                {
+                    Text(process.ToString());
+                }
+                Processes += process.ProcessName + Environment.NewLine;
+            }
+        }
+        else
+        {
+            Process[] processes = Process.GetProcesses();
+            foreach (Process process in processes)
+            {
+                if (write_data_to_screen == true)
+                {
+                    Text(process.ToString());
+                }
+                Processes += process.ProcessName + " | " + process.Id + Environment.NewLine;
+
+            }
+        }
+
+    }
+    public static void KillProcess(string Name)
+    {
+        Process[] processes = Process.GetProcesses();
+        foreach (Process process in processes)
+        {
+            if (process.ProcessName == Name)
+            {
+                process.Kill();
+            }
+        }
+    }
+}
